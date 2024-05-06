@@ -1,0 +1,4 @@
+To control Diplay Brightness (eDP-1):
+
+CODE : 
+xrandr --output eDP-1 --brightness 0.5
