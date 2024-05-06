@@ -1,0 +1,106 @@
+usage: facer_rgb.py [-h] [-m MODE] [-z ZONE] [-s SPEED] [-b BRIGHTNESS] [-d DIRECTION] [-cR RED] [-cG GREEN] [-cB BLUE]
+
+Interacts with experimental Acer-wmi kernel module.
+-m [mode index]
+    Effect modes:
+    0 -> Static [Accepts ZoneID[1,2,3,4] + RGB Color]
+    1 -> Breath [Accepts RGB color]
+    2 -> Neon
+    3 -> Wave
+    4 -> Shifting [Accepts RGB color]
+    5 -> Zoom [Accepts RGB color]
+
+-z [ZoneID]
+    Zone ID(Only in static mode):
+    Possible values: 1,2,3,4
+
+-s [speed]
+    Animation Speed:
+    
+    0 -> No animation speed (static)
+    1 -> Slowest animation speed
+    9 -> Fastest animation speed
+    
+    You can use values between 1-9 to adjust the speed or increase speed even more than 255, but keep in mind
+    that values higher than 9 were not used in the official PredatorSense application.
+
+-b [brightness]
+    Keyboard backlight Brightness:
+    
+    0   -> No backlight (turned off)
+    100 -> Maximum backlight brightness
+    
+-d [direction]
+    Animation direction:
+    
+    1   -> Right to Left
+    2   -> Left to Right
+
+-cR [red value]
+    Some modes require specific [R]GB color
+    
+    0   -> Minimum red range
+    255 -> Maximum red range
+
+-cG [green value]
+    Some modes require specific R[G]B color
+    
+    0   -> Minimum green range
+    255 -> Maximum green range
+
+-cB [blue value]
+    Some modes require specific RG[B] color
+    
+    0   -> Minimum blue range
+    255 -> Maximum blue range
+
+-save [profile name]
+    Add as last argument to save to a profile
+
+-load [profile name]
+    Loads the profile if it exists
+
+-list
+    Lists all the saved profiles in config directory
+    config directory is "$HOME/.config/predator/saved profiles/"
+
+optional arguments:
+  -h, --help     show this help message and exit
+  -m MODE
+  -z ZONE
+  -s SPEED
+  -b BRIGHTNESSBreath effect with Purple color(speed=4, brightness=100):
+./facer_rgb.py -m 1 -s 4 -b 100 -cR 255 -cG 0 -cB 255
+
+Neon effect(speed=3, brightness=100):
+./facer_rgb.py -m 2 -s 3 -b 100
+
+Wave effect(speed=5, brightness=100):
+./facer_rgb.py -m 3 -s 5 -b 100
+
+Shifting effect with Blue color (speed=5, brightness=100):
+./facer_rgb.py -m 4 -s 5 -b 100 -cR 0 -cB 255 -cG 0
+
+Zoom effect with Green color (speed=7, brightness=100):
+./facer_rgb.py -m 5 -s 7 -b 100 -cR 0 -cB 0 -cG 255
+
+Static waving (speed=0): ./facer_rgb.py -m 3 -s 0 -b 100
+
+Static mode coloring (zone=1 => most left zone, color=blue):
+./facer_rgb.py -m 0 -z 1 -cR 0 -cB 255 -cG 0
+
+Static mode coloring (zone=4 => most right zone, color=purple) and save it as example:
+./facer_rgb.py -m 0 -z 4 -cR 255 -cB 255 -cG 0
+
+
+  -d DIRECTION
+  -cR RED
+  -cG GREEN
+  -cB BLUE
+  -save NAME
+  -load NAME
+  -list
+
+
+Usage Eg:
+
