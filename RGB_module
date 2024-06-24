@@ -1,3 +1,12 @@
+For systemd service (will work after reboot)
+
+git clone https://github.com/JafarAkhondali/acer-predator-turbo-and-rgb-keyboard-linux-module
+cd "acer-predator-turbo-and-rgb-keyboard-linux-module"
+chmod +x ./*.sh
+sudo ./install_service.sh
+
+
+
 usage: facer_rgb.py [-h] [-m MODE] [-z ZONE] [-s SPEED] [-b BRIGHTNESS] [-d DIRECTION] [-cR RED] [-cG GREEN] [-cB BLUE]
 
 Interacts with experimental Acer-wmi kernel module.
